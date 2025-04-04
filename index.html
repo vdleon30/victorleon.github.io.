@@ -1,13 +1,131 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Portafolio de Victor León</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victor León - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Victor León - Fullstack Developer</h1>
-    <p>+7 años de experiencia en Laravel, Angular, React y más.</p>
-    <a href="https://github.com/victorleon">Ver mi GitHub</a>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button onclick="changeLanguage('en')" class="active" id="en-btn">EN</button>
+        <button onclick="changeLanguage('es')" id="es-btn">ES</button>
+        <button onclick="changeLanguage('pt')" id="pt-btn">PT</button>
+    </div>
+
+    <!-- Download CV Button -->
+    <button class="download-cv" onclick="downloadCV()">
+        <span class="download-icon">⬇</span>
+        <span class="download-text" data-en="Download CV" data-es="Descargar CV" data-pt="Baixar CV">Download CV</span>
+    </button>
+
+    <!-- Header Section -->
+    <header class="hero">
+        <div class="container">
+            <h1>Ing. Victor León</h1>
+            <h2 class="title" data-en="Full-Stack Developer" data-es="Desarrollador Full-Stack" data-pt="Desenvolvedor Full-Stack">Full-Stack Developer</h2>
+            <div class="contact-info">
+                <p>📧 vdleon3@gmail.com</p>
+                <p>📱 +584249321489</p>
+                <p>📍 Puerto Ordaz</p>
+                <p>🔗 <a href="https://www.linkedin.com/in/victor-león" target="_blank">LinkedIn</a></p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Summary Section -->
+    <section class="summary">
+        <div class="container">
+            <h2 class="section-title" data-en="Summary" data-es="Resumen" data-pt="Resumo">Summary</h2>
+            <p class="summary-text" data-en="Full-stack developer with +7 years of experience working mainly with Laravel, Angular and React frameworks, having strong knowledge of both PHP and JavaScript." 
+               data-es="Desarrollador Full-stack con +7 años de experiencia trabajando principalmente con los frameworks Laravel, Angular y React, teniendo un fuerte conocimiento tanto de PHP como de JavaScript."
+               data-pt="Desenvolvedor Full-stack com +7 anos de experiência trabalhando principalmente com frameworks Laravel, Angular e React, tendo forte conhecimento tanto em PHP quanto em JavaScript.">
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills">
+        <div class="container">
+            <h2 class="section-title" data-en="Technologies" data-es="Tecnologías" data-pt="Tecnologias">Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">Laravel</div>
+                <div class="skill-tag">PHP</div>
+                <div class="skill-tag">Ionic</div>
+                <div class="skill-tag">Angular</div>
+                <div class="skill-tag">TypeScript</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">Git</div>
+                <div class="skill-tag">GitLab</div>
+                <div class="skill-tag">jQuery</div>
+                <div class="skill-tag">Unit Testing</div>
+                <div class="skill-tag">Java</div>
+                <div class="skill-tag">Linux</div>
+                <div class="skill-tag">PostgreSQL</div>
+                <div class="skill-tag">React</div>
+                <div class="skill-tag">React Native</div>
+                <div class="skill-tag">REST</div>
+                <div class="skill-tag">SQL</div>
+                <div class="skill-tag">Golang</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience">
+        <div class="container">
+            <h2 class="section-title" data-en="Experience" data-es="Experiencia" data-pt="Experiência">Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>789mx</h3>
+                    <p class="date">2021 - 2024</p>
+                </div>
+                <p class="position" data-en="Full-Stack Developer" data-es="Desarrollador Full-Stack" data-pt="Desenvolvedor Full-Stack">Full-Stack Developer</p>
+                <ul class="experience-details">
+                    <li data-en="Development of REST API to serve mobile applications (Android and iOS)" 
+                        data-es="Desarrollo de API REST para servir aplicaciones móviles (Android e iOS)"
+                        data-pt="Desenvolvimento de API REST para servir aplicativos móveis (Android e iOS)"></li>
+                    <li data-en="Re-engineering for performance optimization of applications and web pages"
+                        data-es="Reingeniería para optimización de rendimiento de aplicaciones y páginas web"
+                        data-pt="Reengenharia para otimização de desempenho de aplicativos e páginas web"></li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Fortesza</h3>
+                    <p class="date">2020</p>
+                </div>
+                <p class="position" data-en="Back-End Developer" data-es="Desarrollador Back-End" data-pt="Desenvolvedor Back-End">Back-End Developer</p>
+                <ul class="experience-details">
+                    <li data-en="Creation and maintenance of REST API"
+                        data-es="Creación y mantenimiento de API REST"
+                        data-pt="Criação e manutenção de API REST"></li>
+                    <li data-en="Integration of Investment Platform in US Stock Exchange (alpaca)"
+                        data-es="Integración de Plataforma de Inversión en Bolsa de EEUU (alpaca)"
+                        data-pt="Integração de Plataforma de Investimento na Bolsa dos EUA (alpaca)"></li>
+                </ul>
+            </div>
+
+            <!-- Add more experience items following the same pattern -->
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education">
+        <div class="container">
+            <h2 class="section-title" data-en="Education" data-es="Educación" data-pt="Educação">Education</h2>
+            
+            <div class="education-item">
+                <h3>Universidad Nacional Experimental de Guayana</h3>
+                <p class="degree" data-en="Computer Engineering" data-es="Ingeniería Informática" data-pt="Engenharia da Computação">Computer Engineering</p>
+                <p class="date">2014 - 2024</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
