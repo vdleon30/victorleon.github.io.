@@ -1,60 +1,88 @@
-// Language switching functionality
-function changeLanguage(lang) {
-    // Update active button
-    document.querySelectorAll('.language-switcher button').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    document.getElementById(`${lang}-btn`).classList.add('active');
-
-    // Update all translatable elements
-    document.querySelectorAll('[data-en]').forEach(element => {
-        element.textContent = element.getAttribute(`data-${lang}`);
-    });
-}
-
-// Download CV functionality
-function downloadCV() {
-    // Create a link to download the CV
-    const link = document.createElement('a');
-    link.href = 'Victor_Leon_CV.pdf'; // Make sure to add your CV file to the project
-    link.download = 'Victor_Leon_CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-
-// Initialize with English
 document.addEventListener('DOMContentLoaded', () => {
-    changeLanguage('en');
-});
+    // --- Language Switcher ---
+    const langButtons = document.querySelectorAll('.language-switcher button');
+    const translatableElements = document.querySelectorAll('[data-en], [data-es], [data-pt]'); // Selecciona todos los elementos con data attributes de idioma
 
-// Add smooth scroll animation for better UX
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+    function changeLanguage(lang) {
+        // Actualizar botón activo
+        langButtons.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+
+        // Actualizar texto de los elementos
+        translatableElements.forEach(el => {
+            const text = el.dataset[lang];
+            if (text) {
+                // Si el elemento es un <input> o <textarea>, usa .value
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                     el.value = text;
+                     // También actualiza el placeholder si existe
+                     if (el.placeholder) {
+                         el.placeholder = text;
+                     }
+                } else {
+                     // Para otros elementos, usa textContent
+                     el.textContent = text;
+                }
+            }
+        });
+
+        // Actualizar el atributo lang del HTML (buena práctica)
+        document.documentElement.lang = lang;
+
+        // Opcional: Guardar preferencia en localStorage
+        // localStorage.setItem('preferredLanguage', lang);
+    }
+
+    langButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            changeLanguage(button.dataset.lang);
         });
     });
-});
 
-// Add animation on scroll
-const observerOptions = {
-    threshold: 0.1
-};
+    // Opcional: Cargar idioma preferido al inicio
+    // const preferredLang = localStorage.getItem('preferredLanguage') || 'en';
+    // changeLanguage(preferredLang);
+    // Inicializar con el idioma por defecto (inglés en este caso)
+    changeLanguage('en');
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+
+    // --- Download CV Button ---
+    const downloadBtn = document.getElementById('download-cv-btn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+            downloadCV();
+        });
+    }
+
+    function downloadCV() {
+        // Lógica para descargar el CV
+        // Podrías tener diferentes CVs por idioma
+        const currentLang = document.documentElement.lang || 'en';
+        let cvPath = '';
+
+        // Ejemplo: Seleccionar CV según idioma
+        switch(currentLang) {
+            case 'es':
+                cvPath = '/cv/VictorLeon_CV_ES.pdf'; // Ruta ejemplo
+                break;
+            case 'pt':
+                cvPath = '/cv/VictorLeon_CV_PT.pdf'; // Ruta ejemplo
+                break;
+            default: // 'en' y otros
+                cvPath = '/cv/VictorLeon_CV_EN.pdf'; // Ruta ejemplo
         }
-    });
-}, observerOptions);
 
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'all 0.6s ease-out';
-    observer.observe(section);
-});
+        // Crear un enlace temporal y simular clic
+        const link = document.createElement('a');
+        link.href = cvPath;
+        // El atributo 'download' sugiere el nombre del archivo al navegador
+        link.download = cvPath.substring(cvPath.lastIndexOf('/') + 1); // Extrae el nombre del archivo
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        console.log(`Intentando descargar CV para el idioma: ${currentLang} desde ${cvPath}`);
+    }
+
+}); // Fin de DOMContentLoaded

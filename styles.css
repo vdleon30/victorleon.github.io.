@@ -268,3 +268,44 @@ section {
         padding: 1rem;
     }
 }
+
+.experience-project-badges {
+    margin-top: 1rem; /* Espacio después del párrafo del stack */
+}
+
+.badges-title {
+    font-size: 0.9rem; /* Más pequeño que h5 */
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-bottom: 0.75rem;
+    font-weight: normal;
+}
+
+.experience-project-badges .project-badge {
+    display: inline-block; /* Para que se comporten como badges */
+    background: rgba(0, 247, 255, 0.1); /* Fondo sutil con color primario */
+    padding: 0.4rem 0.8rem;
+    border-radius: 1rem; /* Más redondeado */
+    border: 1px solid rgba(0, 247, 255, 0.3); /* Borde sutil */
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    margin-right: 0.5rem; /* Espacio entre badges */
+    margin-bottom: 0.5rem; /* Espacio si se envuelven */
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+/* Estilo hover para los badges que son enlaces */
+.experience-project-badges a.project-badge:hover {
+    background: var(--primary-color);
+    color: var(--background-color);
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+}
+
+/* Estilo opcional para badges sin enlace */
+.experience-project-badges .project-badge.no-link {
+    cursor: default; /* Indicar que no es clickeable */
+    opacity: 0.8; /* Hacerlo ligeramente diferente */
+    /* Puedes quitarle el hover si prefieres */
+}
