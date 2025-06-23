@@ -92,19 +92,19 @@
                     <div class="skill-tag">PHP</div>
                     <div class="skill-tag">Ionic</div>
                     <div class="skill-tag">Angular</div>
-                    <div class="skill-tag">TypeScript</div>
+                    <div class="skill-tag">SQL</div>
                     <div class="skill-tag">JavaScript</div>
                     <div class="skill-tag">Git</div>
                     <div class="skill-tag">GitLab</div>
-                    <div class="skill-tag">jQuery</div>
+                    <div class="skill-tag">TypeScript</div>
                     <div class="skill-tag">Unit Testing</div>
                     <div class="skill-tag">Java</div>
+                    <div class="skill-tag">jQuery</div>
                     <div class="skill-tag">Linux</div>
                     <div class="skill-tag">PostgreSQL</div>
                     <div class="skill-tag">React</div>
                     <div class="skill-tag">React Native</div>
                     <div class="skill-tag">REST</div>
-                    <div class="skill-tag">SQL</div>
                     <div class="skill-tag">Golang</div>
                 </div>
             </div>
@@ -127,9 +127,28 @@
                     </div>
                     <p class="position" data-en="Full-Stack Developer" data-es="Desarrollador Full-Stack"
                         data-pt="Desenvolvedor Full-Stack">Desarrollador Full-Stack</p>
-
+                    <!-- Badges de Proyectos -->
+                    <div class="experience-project-badges">
+                        <h6 class="badges-title" data-en="Projects Worked On" data-es="Proyectos Trabajados"
+                            data-pt="Projetos Trabalhados">Proyectos Trabajados:</h6>
+                        <a href="https://woove.mx/" target="_blank" rel="noopener noreferrer"
+                            class="project-badge">Woove</a>
+                        <a href="https://shezy.mx/" target="_blank" rel="noopener noreferrer"
+                            class="project-badge">Shezy</a>
+                        <a href="https://www.zug.mx/" target="_blank" rel="noopener noreferrer"
+                            class="project-badge">Zug</a>
+                        <span class="project-badge no-link">HTN</span> <!-- Sin enlace -->
+                        <a href="https://robinsonhd.789.com.mx/" target="_blank" rel="noopener noreferrer"
+                            class="project-badge">Robinson</a>
+                        <!-- Agrega más badges si es necesario -->
+                    </div>
+                    <button class="expand-details-btn" aria-expanded="false" aria-controls="details-wrapper-789mx"
+                        data-en-show="Details" data-es-show="Detalles" data-pt-show="Detalhes"
+                        data-en-hide="Hide" data-es-hide="Ocultar" data-pt-hide="Ocultar">
+                        <span class="toggle-text">Detalles</span> <span class="toggle-icon">▼</span>
+                    </button>
                     <!-- Detalles actualizados de la experiencia -->
-                    <div class="experience-details-wrapper"> <!-- Contenedor opcional para mejor estructura -->
+                    <div class="experience-details-wrapper" id="details-wrapper-789mx">
                         <h4 class="details-subtitle" data-en="Responsibilities & Achievements"
                             data-es="Responsabilidades y Logros" data-pt="Responsabilidades e Conquistas">
                             Responsabilidades y Logros:</h4>
@@ -172,21 +191,6 @@
                             <p>Laravel, Laravel Passport, Ionic (Angular), APIs, jQuery, Laravel Blade, Bootstrap, MySQL
                             </p>
 
-                            <!-- Badges de Proyectos -->
-                            <div class="experience-project-badges">
-                                <h6 class="badges-title" data-en="Projects Worked On" data-es="Proyectos Trabajados"
-                                    data-pt="Projetos Trabalhados">Proyectos Trabajados:</h6>
-                                <a href="https://woove.mx/" target="_blank" rel="noopener noreferrer"
-                                    class="project-badge">Woove</a>
-                                <a href="https://shezy.mx/" target="_blank" rel="noopener noreferrer"
-                                    class="project-badge">Shezy</a>
-                                <a href="https://www.zug.mx/" target="_blank" rel="noopener noreferrer"
-                                    class="project-badge">Zug</a>
-                                <span class="project-badge no-link">HTN</span> <!-- Sin enlace -->
-                                <a href="https://robinsonhd.789.com.mx/" target="_blank" rel="noopener noreferrer"
-                                    class="project-badge">Robinson</a>
-                                <!-- Agrega más badges si es necesario -->
-                            </div>
                         </div>
                     </div>
                 </article>
@@ -299,7 +303,7 @@
                         <div class="tech-stack-details">
                             <h5 class="stack-title" data-en="Technology Stack" data-es="Stack Tecnológico"
                                 data-pt="Stack Tecnológico">Stack Tecnológico:</h5>
-                            <p>Angular, React, Ionic, jQuery, React Native</p> <!-- Corregido 'Jquery' a 'jQuery' -->
+                            <p>Angular, React, Ionic, jQuery, React Native</p>
                         </div>
                         <div class="experience-project-badges">
                             <h6 class="badges-title" data-en="Projects Worked On" data-es="Proyectos Trabajados"
@@ -352,7 +356,7 @@
                         <div class="tech-stack-details">
                             <h5 class="stack-title" data-en="Technology Stack" data-es="Stack Tecnológico"
                                 data-pt="Stack Tecnológico">Stack Tecnológico:</h5>
-                            <p>Laravel, jQuery, JavaScript, MySQL, WordPress</p> <!-- Corregido 'Jquery' y 'MySql' -->
+                            <p>Laravel, jQuery, JavaScript, MySQL, WordPress</p>
                         </div>
 
                         <!-- Badges de Proyectos -->
@@ -437,14 +441,15 @@
         <!-- Education Section -->
         <section class="education" aria-labelledby="education-title">
             <div class="container">
-                <h2 id="education-title" class="section-title" data-en="Education & Courses" data-es="Educación y Cursos"
-                    data-pt="Educação e Cursos">Educación y Cursos</h2>
+                <h2 id="education-title" class="section-title" data-en="Education & Courses"
+                    data-es="Educación y Cursos" data-pt="Educação e Cursos">Educación y Cursos</h2>
 
                 <article class="education-item">
                     <div class="education-header"> <!-- Similar a experience-header para consistencia -->
                         <div>
                             <h3>Universidad Nacional Experimental de Guayana</h3>
-                            <p class="location" data-en="Puerto Ordaz, Venezuela" data-es="Puerto Ordaz, Venezuela" data-pt="Puerto Ordaz, Venezuela">Puerto Ordaz, Venezuela</p>
+                            <p class="location" data-en="Puerto Ordaz, Venezuela" data-es="Puerto Ordaz, Venezuela"
+                                data-pt="Puerto Ordaz, Venezuela">Puerto Ordaz, Venezuela</p>
                         </div>
                         <p class="date">10/2014 - 01/2024</p>
                     </div>
@@ -453,41 +458,46 @@
                 </article>
 
                 <article class="education-item">
-                     <div class="education-header">
+                    <div class="education-header">
                         <div>
                             <h3>Universidad De Carabobo</h3>
-                             <p class="location" data-en="Valencia, Venezuela" data-es="Valencia, Venezuela" data-pt="Valência, Venezuela">Valencia, Venezuela</p>
+                            <p class="location" data-en="Valencia, Venezuela" data-es="Valencia, Venezuela"
+                                data-pt="Valência, Venezuela">Valencia, Venezuela</p>
                         </div>
                         <p class="date">11/2015 - 11/2015</p>
                     </div>
-                    <p class="degree" data-en="Workshop: Computing, Informatics and Systems" data-es="Taller de computación, informática y sistemas" data-pt="Workshop: Computação, Informática e Sistemas">Taller de computación, informática y sistemas</p>
+                    <p class="degree" data-en="Workshop: Computing, Informatics and Systems"
+                        data-es="Taller de computación, informática y sistemas"
+                        data-pt="Workshop: Computação, Informática e Sistemas">Taller de computación, informática y
+                        sistemas</p>
                     <!-- Detalles del taller -->
                     <div class="education-details-wrapper"> <!-- Contenedor opcional -->
-                         <h4 class="details-subtitle" data-en="Topics Covered" data-es="Temas Cubiertos" data-pt="Tópicos Abordados">Temas Cubiertos:</h4>
-                         <ul class="education-details">
-                            <li data-en="Debian GNU/Linux" data-es="Debian GNU/Linux" data-pt="Debian GNU/Linux">Debian GNU/Linux</li>
-                            <li data-en="Functional Programming in Haskell" data-es="Programación Funcional en Haskell" data-pt="Programação Funcional em Haskell">Programación Funcional en Haskell</li>
-                            <li data-en="Public Software" data-es="Software Público" data-pt="Software Público">Software Público</li>
-                         </ul>
+                        <h4 class="details-subtitle" data-en="Topics Covered" data-es="Temas Cubiertos"
+                            data-pt="Tópicos Abordados">Temas Cubiertos:</h4>
+                        <ul class="education-details">
+                            <li data-en="Debian GNU/Linux" data-es="Debian GNU/Linux" data-pt="Debian GNU/Linux">Debian
+                                GNU/Linux</li>
+                            <li data-en="Functional Programming in Haskell" data-es="Programación Funcional en Haskell"
+                                data-pt="Programação Funcional em Haskell">Programación Funcional en Haskell</li>
+                            <li data-en="Public Software" data-es="Software Público" data-pt="Software Público">Software
+                                Público</li>
+                        </ul>
                     </div>
                 </article>
 
                 <article class="education-item">
-                     <div class="education-header">
+                    <div class="education-header">
                         <div>
-                            <h3 data-en="EF Standard English Test (EF SET)" data-es="EF Standard English Test (EF SET)" data-pt="EF Standard English Test (EF SET)">EF Standard English Test (EF SET)</h3>
-                            <p class="location" data-en="Online Certification" data-es="Certificación Online" data-pt="Certificação Online">Certificación Online</p>
+                            <h3 data-en="EF Standard English Test (EF SET)" data-es="EF Standard English Test (EF SET)"
+                                data-pt="EF Standard English Test (EF SET)">EF Standard English Test (EF SET)</h3>
+                            <p class="location" data-en="Online Certification" data-es="Certificación Online"
+                                data-pt="Certificação Online">Certificación Online</p>
                         </div>
-                        <!-- Puedes añadir la fecha si la tienes -->
-                        <!-- <p class="date">MM/YYYY</p> -->
                     </div>
-                    <p class="degree" data-en="Level: B1 Intermediate - B2 Upper Intermediate" data-es="Nivel: B1 Intermedio - B2 Intermedio Alto" data-pt="Nível: B1 Intermediário - B2 Intermediário Superior">Nivel: B1 Intermedio - B2 Intermedio Alto</p>
-                     <!-- Puedes añadir un enlace al certificado si lo tienes -->
-                     <!--
-                     <div class="education-details-wrapper">
-                        <a href="URL_DEL_CERTIFICADO" target="_blank" rel="noopener noreferrer" class="certificate-link">Ver Certificado</a>
-                     </div>
-                     -->
+                    <p class="degree" data-en="Level: B1 Intermediate - B2 Upper Intermediate"
+                        data-es="Nivel: B1 Intermedio - B2 Intermedio Alto"
+                        data-pt="Nível: B1 Intermediário - B2 Intermediário Superior">Nivel: B1 Intermedio - B2
+                        Intermedio Alto</p>
                 </article>
     </main> <!-- Fin del contenido principal -->
 

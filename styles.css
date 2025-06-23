@@ -309,3 +309,53 @@ section {
     opacity: 0.8; /* Hacerlo ligeramente diferente */
     /* Puedes quitarle el hover si prefieres */
 }
+
+.experience-details-wrapper {
+    display: none; /* Oculto inicialmente */
+    margin-top: 10px; /* Espacio opcional arriba */
+    /* Para una transición suave (opcional): */
+    /* max-height: 0; */
+    /* overflow: hidden; */
+    /* transition: max-height 0.4s ease-out, margin-top 0.4s ease-out; */
+}
+
+/* Mostrar el contenedor cuando el artículo tiene la clase 'expanded' */
+.experience-item.expanded .experience-details-wrapper {
+    display: block; /* Mostrar */
+    /* Para transición suave (opcional): */
+    /* max-height: 1000px; */ /* Un valor suficientemente grande */
+    /* transition: max-height 0.5s ease-in, margin-top 0.5s ease-in; */
+}
+
+/* Estilos básicos para el botón de expandir/contraer */
+.expand-details-btn {
+    background-color: transparent;
+    border: 1px solid var(--secondary-color, #ccc); /* Usa tu color secundario o un gris */
+    color: var(--primary-color, #333); /* Usa tu color primario o de texto */
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    display: inline-block; /* O block si quieres que ocupe todo el ancho */
+    font-size: 0.9em;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.expand-details-btn:hover,
+.expand-details-btn:focus {
+    background-color: var(--light-bg, #f0f0f0); /* Un color de fondo claro al pasar el mouse */
+    outline: 2px solid var(--primary-color, #007bff); /* Resaltado para accesibilidad */
+    outline-offset: 2px;
+}
+
+/* Estilo para el icono (flecha) */
+.expand-details-btn .toggle-icon {
+    display: inline-block;
+    margin-left: 5px;
+    transition: transform 0.3s ease; /* Animación de la flecha */
+}
+
+/* Girar la flecha cuando está expandido */
+.experience-item.expanded .expand-details-btn .toggle-icon {
+    transform: rotate(180deg);
+}

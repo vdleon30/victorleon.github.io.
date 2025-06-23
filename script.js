@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (text) {
                 // Si el elemento es un <input> o <textarea>, usa .value
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                     el.value = text;
-                     // También actualiza el placeholder si existe
-                     if (el.placeholder) {
-                         el.placeholder = text;
-                     }
+                    el.value = text;
+                    // También actualiza el placeholder si existe
+                    if (el.placeholder) {
+                        el.placeholder = text;
+                    }
                 } else {
-                     // Para otros elementos, usa textContent
-                     el.textContent = text;
+                    // Para otros elementos, usa textContent
+                    el.textContent = text;
                 }
             }
         });
@@ -55,34 +55,81 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function downloadCV() {
-        // Lógica para descargar el CV
-        // Podrías tener diferentes CVs por idioma
-        const currentLang = document.documentElement.lang || 'en';
-        let cvPath = '';
+        function downloadCV() {
+            // Lógica para abrir el CV en otra pestaña según el idioma
+            const currentLang = document.documentElement.lang || 'en';
+            let cvPath = '';
 
-        // Ejemplo: Seleccionar CV según idioma
-        switch(currentLang) {
+            switch (currentLang) {
             case 'es':
-                cvPath = '/cv/VictorLeon_CV_ES.pdf'; // Ruta ejemplo
+                cvPath = './cv/VictorLeon_CV_ES.pdf';
                 break;
             case 'pt':
-                cvPath = '/cv/VictorLeon_CV_PT.pdf'; // Ruta ejemplo
+                cvPath = './cv/VictorLeon_CV_PT.pdf';
                 break;
-            default: // 'en' y otros
-                cvPath = '/cv/VictorLeon_CV_EN.pdf'; // Ruta ejemplo
+            default:
+                cvPath = './cv/VictorLeon_CV_EN.pdf';
+            }
+
+            // Abrir el archivo en una nueva pestaña
+            window.open(cvPath, '_blank');
+
+            console.log(`Abriendo CV para el idioma: ${currentLang} desde ${cvPath}`);
         }
 
-        // Crear un enlace temporal y simular clic
-        const link = document.createElement('a');
-        link.href = cvPath;
-        // El atributo 'download' sugiere el nombre del archivo al navegador
-        link.download = cvPath.substring(cvPath.lastIndexOf('/') + 1); // Extrae el nombre del archivo
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
 
-        console.log(`Intentando descargar CV para el idioma: ${currentLang} desde ${cvPath}`);
-    }
+    const experienceItems = document.querySelectorAll('.experience-item');
+
+    experienceItems.forEach(item => {
+        const toggleBtn = item.querySelector('.expand-details-btn');
+        const detailsWrapper = item.querySelector('.experience-details-wrapper');
+        const toggleTextSpan = toggleBtn ? toggleBtn.querySelector('.toggle-text') : null; // Span para el texto
+        const currentLang = document.documentElement.lang || 'en'; // Obtener idioma actual
+
+        if (toggleBtn && detailsWrapper && toggleTextSpan) {
+            // Establecer texto inicial del botón según el idioma
+            const showTextAttr = `data-${currentLang}-show`;
+            toggleTextSpan.textContent = toggleBtn.getAttribute(showTextAttr) || toggleBtn.getAttribute('data-en-show'); // Texto inicial
+
+            toggleBtn.addEventListener('click', () => {
+                const isExpanded = item.classList.toggle('expanded'); // Añade/quita la clase 'expanded'
+                toggleBtn.setAttribute('aria-expanded', isExpanded); // Actualiza ARIA
+
+                // Actualizar texto del botón
+                const lang = document.documentElement.lang || 'en'; // Re-chequear idioma por si cambió
+                const textAttr = isExpanded ? `data-${lang}-hide` : `data-${lang}-show`;
+                const fallbackAttr = isExpanded ? 'data-en-hide' : 'data-en-show';
+                toggleTextSpan.textContent = toggleBtn.getAttribute(textAttr) || toggleBtn.getAttribute(fallbackAttr);
+
+                // Opcional: Si usas display: none/block, no necesitas esto.
+                // Si usas max-height, puede ser útil re-calcular si el contenido cambia dinámicamente.
+                // if (isExpanded) {
+                //   detailsWrapper.style.maxHeight = detailsWrapper.scrollHeight + "px";
+                // } else {
+                //   detailsWrapper.style.maxHeight = null;
+                // }
+            });
+        }
+    });
+
+    // Asegurarse de que el texto del botón se actualice al cambiar de idioma
+    langButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Pequeña demora para asegurar que el cambio de idioma se aplicó
+            setTimeout(() => {
+                const newLang = document.documentElement.lang || 'en';
+                experienceItems.forEach(item => {
+                    const toggleBtn = item.querySelector('.expand-details-btn');
+                    const toggleTextSpan = toggleBtn ? toggleBtn.querySelector('.toggle-text') : null;
+                    if (toggleBtn && toggleTextSpan) {
+                        const isExpanded = item.classList.contains('expanded');
+                        const textAttr = isExpanded ? `data-${newLang}-hide` : `data-${newLang}-show`;
+                        const fallbackAttr = isExpanded ? 'data-en-hide' : 'data-en-show';
+                        toggleTextSpan.textContent = toggleBtn.getAttribute(textAttr) || toggleBtn.getAttribute(fallbackAttr);
+                    }
+                });
+            }, 50); // 50ms de espera
+        });
+    });
 
 }); // Fin de DOMContentLoaded
