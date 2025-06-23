@@ -98,6 +98,7 @@ body {
     background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
     opacity: 0.1;
     animation: rotate 20s linear infinite;
+    pointer-events: none; /* Permite que los clics pasen a los elementos subyacentes */
 }
 
 @keyframes rotate {
